@@ -4,6 +4,7 @@ Lib which exposes a method called allocate to split deposits between deposit pla
 
 #### Usage
 
+Note: node > 13, es2020 doesn't work, use node~12
 #### Install dependencies
 
 ```
