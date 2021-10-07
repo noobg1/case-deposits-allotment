@@ -30,7 +30,28 @@ const distributeAmount = (amountToDistribute, portfolioName, depositPlanRatio, p
   return { portfolio: portfolioClone, amountToAdd };
 };
 
+const validateInput = (depositPlans) => {
+  if (!depositPlans.oneTime && !depositPlans.monthly) {
+    // if both onetime, monthly deposits plan doesn't exist throw error
+    throw new Error('Either of oneTime, monthly deposit plans are needed!');
+  }
+};
+
+const getAllDepositPlanRatio = (depositPlans) => {
+  // Get one-time deposit portfolio total, ratio
+  const oneTimeDepositPlanTotal = getDepositPlanTotal(depositPlans.oneTime);
+  const oneTimeDepositPlanRatio = getDepositPlanRatio(depositPlans.oneTime, oneTimeDepositPlanTotal);
+
+  // Get monthly deposit portfolio total, ratio
+  const monthlyDepositPlanTotal = getDepositPlanTotal(depositPlans.monthly);
+  const monthlyDepositPlanRatio = getDepositPlanRatio(depositPlans.monthly, monthlyDepositPlanTotal);
+
+  return { oneTimeDepositPlanRatio, monthlyDepositPlanRatio  };
+};
+
 module.exports = {
+  validateInput,
+  getAllDepositPlanRatio,
   getDepositPlanTotal,
   getDepositPlanRatio,
   shouldAddMoneyToOneTimeDepositPlan,

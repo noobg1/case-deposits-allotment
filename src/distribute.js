@@ -1,23 +1,15 @@
 const {
-  getDepositPlanTotal,
-  getDepositPlanRatio,
+  validateInput,
+  getAllDepositPlanRatio,
   shouldAddMoneyToOneTimeDepositPlan,
   distributeAmount
-} = require('./utils');
+} = require('./distribute.utils');
 
 const getAllotment = ({ depositPlans, deposits }) => {
-  if (!depositPlans.oneTime && !depositPlans.monthly) {
-    // if both onetime, monthly deposits plan doesn't exist throw error
-    throw new Error('Either of oneTime, monthly deposit plans are needed!');
-  }
+  validateInput(depositPlans);
 
-  // Get one-time deposit portfolio total, ratio
-  const oneTimeDepositPlanTotal = getDepositPlanTotal(depositPlans.oneTime);
-  const oneTimeDepositPlanRatio = getDepositPlanRatio(depositPlans.oneTime, oneTimeDepositPlanTotal);
-
-  // Get monthly deposit portfolio total, ratio
-  const monthlyDepositPlanTotal = getDepositPlanTotal(depositPlans.monthly);
-  const monthlyDepositPlanRatio = getDepositPlanRatio(depositPlans.monthly, monthlyDepositPlanTotal);
+  // Calculate deposit ratios to allot deposit money
+  const { oneTimeDepositPlanRatio, monthlyDepositPlanRatio } = getAllDepositPlanRatio(depositPlans);
 
   // Create allotment for each deposit
   let allotment = {};
