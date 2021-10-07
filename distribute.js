@@ -28,8 +28,7 @@ const shouldAddMoneyToOneTimeDepositPlan = (portfolio, oneTimeDepositPlan, depos
 const distributeAmount = (amountToDistribute, portfolioName, depositPlanRatio, portfolio) => {
   const portfolioClone = { ...portfolio };
   const amountToAdd = amountToDistribute * depositPlanRatio[portfolioName];
-  portfolioClone[portfolioName] = portfolioClone[portfolioName] ?
-  portfolioClone[portfolioName] + amountToAdd : amountToAdd;
+  portfolioClone[portfolioName] = (portfolioClone[portfolioName] || 0) + amountToAdd;
   return { portfolio: portfolioClone, amountToAdd };
 };
 
