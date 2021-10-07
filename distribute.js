@@ -20,9 +20,9 @@ const shouldAddMoneyToOneTimeDepositPlan = (portfolio, oneTimeDepositPlan, depos
   // if in current portfolio no money is added for the deposit plan then add money to one time depo
   return !portfolio[oneTimeDepositPlan] ||
     // if in current portfolio amount is less than the limit of the portfolio itself then add money to one time depo
-    portfolio[oneTimeDepositPlan] < depositPlans?.oneTime[oneTimeDepositPlan] ||
+    portfolio[oneTimeDepositPlan] < depositPlans.oneTime[oneTimeDepositPlan] ||
     // if no monthly exists so put all money in onetime deposit plan then add money to one time depo
-    !depositPlans?.monthly;
+    !depositPlans.monthly;
 };
 
 const distributeAmount = (amountToDistribute, portfolioName, depositPlanRatio, portfolio) => {
@@ -40,12 +40,12 @@ const getAllotment = ({ depositPlans, deposits }) => {
   }
 
   // Get one-time deposit portfolio total, ratio
-  const oneTimeDepositPlanTotal = getDepositPlanTotal(depositPlans?.oneTime);
-  const oneTimeDepositPlanRatio = getDepositPlanRatio(depositPlans?.oneTime, oneTimeDepositPlanTotal);
+  const oneTimeDepositPlanTotal = getDepositPlanTotal(depositPlans.oneTime);
+  const oneTimeDepositPlanRatio = getDepositPlanRatio(depositPlans.oneTime, oneTimeDepositPlanTotal);
 
   // Get monthly deposit portfolio total, ratio
-  const monthlyDepositPlanTotal = getDepositPlanTotal(depositPlans?.monthly);
-  const monthlyDepositPlanRatio = getDepositPlanRatio(depositPlans?.monthly, monthlyDepositPlanTotal);
+  const monthlyDepositPlanTotal = getDepositPlanTotal(depositPlans.monthly);
+  const monthlyDepositPlanRatio = getDepositPlanRatio(depositPlans.monthly, monthlyDepositPlanTotal);
 
   // Create allotment for each deposit
   let allotment = {};

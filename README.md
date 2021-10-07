@@ -4,6 +4,14 @@ Lib which exposes a method called allocate to split deposits between deposit pla
 
 #### Usage
 
+#### Install dependencies
+
+```
+npm ci
+```
+
+### Calling the lib
+
 ```
 const { getAllotment } = require('./distribute');
 
