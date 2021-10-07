@@ -1,0 +1,21 @@
+{
+  "root": true,
+  "extends": ["eslint:recommended"],
+  "env": {
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "semi": ["error", "always"],
+    "object-curly-spacing": ["error", "always"]
+  }
+}
