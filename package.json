@@ -4,8 +4,8 @@
   "description": "",
   "main": "distrbute.js",
   "scripts": {
-    "test": "nyc mocha '*.test.js'",
-    "test:watch": "nyc mocha '*.test.js' -w"
+    "test": "nyc mocha 'src/*.test.js'",
+    "test:watch": "nyc mocha 'src/*.test.js' -w"
   },
   "keywords": [],
   "author": "",

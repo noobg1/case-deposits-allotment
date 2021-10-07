@@ -44,8 +44,10 @@ npm run test
 
 ### Approach
 
-Based on approach mentioned [here](https://www.stashaway.sg/faq/900000812366-how-does-my-money-get-allocated-if-i-have-multiple-portfolios-consisting-of-income-and-other-portfolios)
+- Coding paradigm: Functional programming
+- Algo to split the deposit and get allotment (taken approach mentioned [here](https://www.stashaway.sg/faq/900000812366-how-does-my-money-get-allocated-if-i-have-multiple-portfolios-consisting-of-income-and-other-portfolios)) 
 
 ```
-Memory and time complexity is O(N), N being the Max(length of deposits, number of portfolios in plan)
+Time complexity is O(N), N being the Max(length of deposits, number of portfolios in plan)
+Mem complexity is O(M), M being number of portpolios
 ```
