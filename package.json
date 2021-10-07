@@ -1,0 +1,19 @@
+{
+  "name": "stashaway",
+  "version": "1.0.0",
+  "description": "",
+  "main": "distrbute.js",
+  "scripts": {
+    "test": "nyc mocha '*.test.js'",
+    "test:watch": "nyc mocha '*.test.js' -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.2",
+    "nyc": "^15.1.0"
+  }
+}
